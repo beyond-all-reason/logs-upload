@@ -1,0 +1,13 @@
+name = "logs-upload"
+main = "src/index.ts"
+compatibility_date = "2023-04-10"
+account_id = "5e015123d861c65819b733acb27db18e"
+
+[[r2_buckets]]
+binding = "R2_BUCKET"
+bucket_name = "logs-upload-prod-8761"
+preview_bucket_name = "logs-upload-dev-8761"
+
+[[routes]]
+pattern = "upload-log.beyondallreason.dev"
+custom_domain = true
