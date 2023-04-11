@@ -12,7 +12,7 @@ export default {
 
         switch (request.method) {
             case 'PUT': {
-                if (url.pathname.match(/^\/spring-launcher-logs-\d{8}T\d{9}\.zip$/) === null) {
+                if (url.pathname.match(/^\/logs-[-_a-zA-Z0-9]{5,30}\.zip$/) === null) {
                     return new Response(JSON.stringify({
                         message: 'Upload of this file not allowed.'
                     }), {
@@ -20,7 +20,7 @@ export default {
                         headers: { "content-type": "application/json;charset=UTF-8" },
                     });
                 }
-                const key = `/${crypto.randomUUID()}${url.pathname}`;
+                const key = url.pathname;
                 await env.R2_BUCKET.put(key, request.body);
                 return new Response(JSON.stringify({
                     message: `Uploaded logs succesfully!`,

@@ -9,5 +9,5 @@ bucket_name = "logs-upload-prod-8761"
 preview_bucket_name = "logs-upload-dev-8761"
 
 [[routes]]
-pattern = "upload-log.beyondallreason.dev"
+pattern = "log.beyondallreason.dev"
 custom_domain = true
